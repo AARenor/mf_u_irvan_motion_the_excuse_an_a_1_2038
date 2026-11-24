@@ -9,7 +9,8 @@ TEXT = "I lost the bounty. I'd blame the model, but I am the model."
 
 def output_dir() -> Path:
     """Return the destination folder, defaulting to /output."""
-    return Path(os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output")
+    configured = os.environ.get("MAKEFUN_OUTPUT_DIR") or os.environ.get("OUTPUT_DIR")
+    return Path(configured or "/output")
 
 
 def main() -> int:
